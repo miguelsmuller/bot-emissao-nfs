@@ -28,6 +28,12 @@ help:
 setup:
 	pip install -r requirements.txt
 
-## standalone
-standalone:
-	export AIRFLOW_HOME=$(pwd)/airflow && airflow standalone
+## hospedin
+hospedin:
+	read -p "Inform username: " username && \
+	read -p "Inform password: " password && \
+	py app/__main__.py --download --user $$username --password $$password
+
+## convert
+convert:
+	py app/__main__.py --convert
